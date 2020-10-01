@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 't!dfov2&hn&5hch-&+%ik5+qd+lzb2f28=2$k&b+x7z!bym#0!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-#ALLOWED_HOSTS = ["asimbcn-ecommerce.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["asimbcn-ecommerce.herokuapp.com", "127.0.0.1"]
 
 # Application definition
 
@@ -117,7 +117,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
