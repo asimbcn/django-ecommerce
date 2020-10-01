@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <button class="back-btn" onclick="window.location.href='/';">Back</button>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <label>
+            <p class="label-txt">ENTER YOUR USERNAME</p>
+            <input type="text" class="input" name="username" required>
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt">ENTER YOUR PASSWORD</p>
+            <input type="password" class="input" name="password" required>
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <div class="error">
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+        </div><br>
+        <div class="account">
+            Don't Have a Account ? <a class="registet-btn" href="{% url 'register' %}"
+                style="text-decoration: none;">Register</a> Now<br><br>
+        </div>
+
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+<script src="{% static 'js/login.js' %}"></script>
+
+</html>
